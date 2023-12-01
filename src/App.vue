@@ -60,9 +60,14 @@ export default {
       // TODO
       // event.dataTransfer.setData("text/plain", "?????");
       event.dataTransfer.setData("text/html", html);
-      console.log(event);
     },
     logthen(editor) {
+      editor.ui
+        .getEditableElement()
+        .parentElement.insertBefore(
+          editor.ui.view.toolbar.element,
+          editor.ui.getEditableElement()
+        );
       //  编辑器调试 启动!
       CKEditorInspector.attach(editor);
       // const view = editor.editing.view;

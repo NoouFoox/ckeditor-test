@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.7.8",
+    "axios": "^1.6.2",
     "ckeditor5-speed-vue2": "^0.0.4",
     "core-js": "^3.8.3",
     "vue": "^2.6.14"

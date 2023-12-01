@@ -1,3 +1,4 @@
+import { customUploadAdapterPlugin } from "./upload";
 // 限制表格不能嵌套表格
 function DisallowNestingTables(editor) {
   editor.model.schema.addChildCheck((context, childDefinition) => {
@@ -9,5 +10,6 @@ function DisallowNestingTables(editor) {
     }
   });
 }
-const extraPlugins = [DisallowNestingTables];
+
+const extraPlugins = [DisallowNestingTables, customUploadAdapterPlugin];
 export default extraPlugins;
