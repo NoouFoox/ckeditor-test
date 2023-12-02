@@ -3,12 +3,9 @@ class UploadAdapter {
   constructor(loader) {
     this.loader = loader;
   }
-
-  // 启动上载过程
   upload() {
     return this.loader.file.then(
       (file) =>
-        // resolve, reject
         new Promise((resolve, reject) => {
           let data = new FormData();
           data.append("file", file, file.name);
@@ -33,10 +30,6 @@ class UploadAdapter {
         })
     );
   }
-
-  // resolve({
-  //   default: response.url,
-  // });
 }
 
 function customUploadAdapterPlugin(editor) {

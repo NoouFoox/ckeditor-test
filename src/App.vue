@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <a-button v-print="'#content'">打印预览</a-button>
+    <hr />
     <div style="margin: 10px">
       <a-button
         href=""
@@ -14,15 +16,16 @@
       >
     </div>
     <SpeedEdit @then="logthen" v-model="value" :config="config" />
-    {{ value }}
-    <div v-html="value"></div>
+    <!-- {{ value }} -->
+    <div id="_print" class="ck-content">
+      <div id="content" v-html="value"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import editConfig from "./editConfig";
 import extraPlugins from "./extraPlugins";
-import CKEditorInspector from "@ckeditor/ckeditor5-inspector";
 const tableConfig = {
   defaultProperties: {
     borderStyle: "solid",
@@ -69,7 +72,6 @@ export default {
           editor.ui.getEditableElement()
         );
       //  编辑器调试 启动!
-      CKEditorInspector.attach(editor);
       // const view = editor.editing.view;
       // const viewDocument = view.document;
       console.log(editor);
@@ -81,6 +83,7 @@ export default {
 </script>
 
 <style>
+@import url("./editContent.css");
 .ck-content .table {
   width: 100%;
   border: hsl(0, 0%, 60%) solid 1px;
